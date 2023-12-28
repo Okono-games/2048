@@ -62,6 +62,46 @@ void affichage_double_matrices(int taille, VALEUR m_1[][taille], VALEUR m_2[][ta
     
 }
 
+int affichage_choix_taille(int taille){
+
+    Vector2 positionSouris = GetMousePosition();
+    ClearBackground(RAYWHITE);
+    DrawText("Taille de la grille", 20, 20, 40, RED);
+    DrawText("+", 20, 120, 40, GREEN);
+    DrawText("-", 20, 320, 40, PURPLE);
+
+    if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+        if(positionSouris.x > 0 && positionSouris.x <= 220 &&
+          (positionSouris.y > 120 && positionSouris.y <= 150)){
+            if(taille < 9){
+                taille++;
+            }
+        }
+        if(positionSouris.x > 0 && positionSouris.x <= 270 &&
+          (positionSouris.y > 320 && positionSouris.y <= 350)){
+            if(taille > 4)
+                taille--;
+        }
+    }
+    char texte_taille[2];
+    sprintf(texte_taille, "%d", taille);
+    DrawText(texte_taille,20,220,40,BLUE);
+    return taille;
+}
+
+int choix_taille(int taille){
+    int choix_fait = 0;
+    if(IsKeyPressed(KEY_ENTER)){
+        choix_fait = 1;
+        DrawText("taille choisie!",20,620,40, ORANGE);
+    }
+    
+//    if(!choix_fait)
+//        taille = affichage_choix_taille(taille);
+
+    return taille;
+}
+
 void dessin_fenetre(int taille, matrice[][taille], matrice_2[][taille]){
     BeginDrawing();
 
