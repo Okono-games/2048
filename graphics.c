@@ -2,12 +2,6 @@
 #include <stdlib.h>
 #include "raylib.h"
 
-#define TAILLE_CARRE 50
-#define DECALLAGE_DE_BASE 20
-#define LARGEUR_ECRAN 1280
-#define LONGUEUR_ECRAN 720
-#define TAILLE_POLICE 40
-
 /* DEFINITION D'ENUM */
 typedef enum {X=-1} VALEUR;
 
@@ -45,8 +39,8 @@ void affichage_matrice(int taille, VALEUR matrice[][taille], int decallage){
 
             }else{
 
-                char result[5] = {0};
-                sprintf(result, "%d", matrice[i][j]);
+                char result[7] = {0};
+                sprintf(result, "%d", (int) matrice[i][j]);
                 DrawText(result, decallage + i*TAILLE_CARRE, j*TAILLE_CARRE,TAILLE_POLICE, RAYWHITE);
                 DrawRectangle(decallage + i*TAILLE_CARRE, j*TAILLE_CARRE, TAILLE_CARRE, TAILLE_CARRE, RED);
             }
@@ -89,20 +83,20 @@ int affichage_choix_taille(int taille){
     return taille;
 }
 
-int choix_taille(int taille){
+int choix_taille(int* taille){
     int choix_fait = 0;
     if(IsKeyPressed(KEY_ENTER)){
         choix_fait = 1;
         DrawText("taille choisie!",20,620,40, ORANGE);
     }
     
-//    if(!choix_fait)
-//        taille = affichage_choix_taille(taille);
+    if(!choix_fait)
+        *taille = affichage_choix_taille(*taille);
 
-    return taille;
+    return choix_fait;
 }
 
-void dessin_fenetre(int taille, matrice[][taille], matrice_2[][taille]){
+void dessin_fenetre(int taille, VALEUR matrice[][taille], VALEUR matrice_2[][taille]){
     BeginDrawing();
 
     ClearBackground(RAYWHITE);
