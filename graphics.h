@@ -1,8 +1,18 @@
+#ifndef __GRAPHICS__H__
+#define __GRAPHICS__H__
+
 #define TAILLE_CARRE 50
 #define DECALLAGE_DE_BASE 20
 #define LARGEUR_ECRAN 1280
 #define LONGUEUR_ECRAN 720
-#define TAILLE_POLICE 40
+#define TAILLE_POLICE 20
+
+typedef enum Ecrans {
+    MENU = 0,
+    SOLO,
+    DUO,
+    PUZZLE
+} Ecrans;
 
 void creation_fenetre();
 
@@ -14,6 +24,6 @@ int affichage_choix_taille(int taille);
 
 int choix_taille(int* taille);
 
-void dessin_fenetre(int taille, matrice[][taille], matrice_2[][taille]);
+int dessin_fenetre(int* taille, VALEUR matrice[][*taille], VALEUR matrice_2[][*taille]);
 
-
+#endif

@@ -2,7 +2,7 @@
 
 
 cmake_minimum_required(VERSION 3.11) # FetchContent is available in 3.11+
-project(rgame)
+project(2048game)
 
 # Generate compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -31,6 +31,9 @@ endif()
 add_executable(${PROJECT_NAME}
     main.c
     graphics.c
-    )
+    graphics.h
+    game.c
+    game.h
+    def.h)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
