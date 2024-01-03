@@ -34,6 +34,8 @@ add_executable(${PROJECT_NAME}
     graphics.h
     game.c
     game.h
-    def.h)
+    def.h
+    extrac_fichier.c
+    extrac_fichier.h)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

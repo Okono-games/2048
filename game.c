@@ -165,7 +165,6 @@ int deplacement_haut(int taille,VALEUR tableau[][taille]){
             }
             else if (tableau[curseur][i]!=tableau[cible][i]){
                 if ( (curseur+1) != cible){
-                	printf("salut");
                     tableau[curseur+1][i]=tableau[cible][i];
                     tableau[cible][i]=0;
                     if (!changement){changement=1;};

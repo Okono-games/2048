@@ -6,6 +6,7 @@
 #define LARGEUR_ECRAN 1280
 #define LONGUEUR_ECRAN 720
 #define TAILLE_POLICE 20
+#define MAX_CHARS 16
 
 typedef enum Ecrans {
     MENU = 0,

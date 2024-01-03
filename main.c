@@ -6,7 +6,6 @@
 #include "graphics.h"
 
 // Variables globales de graphics
-extern Vector2 positionSouris;
 extern Ecrans ecran;
 
 
@@ -24,7 +23,8 @@ int main(){
 			tableau = (VALEUR**) malloc(sizeof(VALEUR)*taille*taille);
     		tableau_2 = (VALEUR**) malloc(sizeof(VALEUR)*taille*taille);
     		init_tableau(taille, tableau);
-    		init_tableau(taille, tableau_2);}
+    		init_tableau(taille, tableau_2);
+    	}
         if (ecran == SOLO || ecran == PUZZLE){
         	jouer(taille, tableau);
         }
